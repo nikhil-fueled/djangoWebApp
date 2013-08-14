@@ -1,0 +1,9 @@
+{% if plist %}
+    <ul>
+    {% for poll in plist %}
+        <li><a href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
