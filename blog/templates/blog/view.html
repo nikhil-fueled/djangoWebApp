@@ -5,19 +5,20 @@
 
         <!-- Posts  -->
         <ul>
-            {% for post in posts.object_list %}
                 <div class="title"><a href="view/{{post.id}}">{{ post.title }}</a></div>
                 <ul>
                     <div class="time">{{ post.created }}</div>
                     <div class="body">{{ post.body|linebreaks }}</div>
                 </ul>
-                <form action="addComment/" >
-                    Name: <input type="text" name="name"/><br>
-                    Comment: <textarea name="comments"></textarea>
-                    <input type="text" name="post" value="{{post.id}}" hidden="true"/>
-                    <button>Submit</button>
-                </form>
-            {% endfor %}
+                <div class="comment">
+					<h3> Comments </h3>
+					<ul>
+					{% for comment in comments%}
+						<li>{{comment.body}} by {{comment.name}}</li>
+
+					{% endfor %}
+					</ul>
+                </div>
         </ul>
 
         <!-- Next/Prev page links  -->
@@ -41,3 +42,5 @@
     </div>
 
 {% endblock %}
+
+

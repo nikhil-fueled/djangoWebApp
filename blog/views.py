@@ -1,8 +1,8 @@
 # Create your views here.
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
-from django.shortcuts import render
-from blog.models import Post
+from django.shortcuts import render,get_object_or_404
+from blog.models import Post, Comment
 
 def index(request):
 	print "got into index"
@@ -17,3 +17,17 @@ def index(request):
 	except (InvalidPage, EmptyPage):
 		posts= paginator.page(paginator.num_pages)
 	return render(request,'blog/list.html', {"posts":posts})
+
+def addComment(request):
+	post1= get_object_or_404(Post, pk=request.GET['post'])
+	comment= Comment(name=request.GET['name'], body= request.GET['comments'], post=post1)
+	comment.save()
+	print comment
+	return index(request)
+
+def view(request, pk):
+	post= Post.objects.get(pk=pk)
+	print post
+	comment= Comment.objects.all()
+	print comment
+	return render(request, 'blog/view.html', {"post": post, "comments": comment})

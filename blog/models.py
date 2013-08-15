@@ -8,3 +8,8 @@ class Post(models.Model):
 	def __unicode__(self):
 		return self.title
 
+class Comment(models.Model):
+	post= models.ForeignKey(Post)
+	body= models.CharField(max_length=200)
+	name= models.CharField(max_length=30)
+
