@@ -5,13 +5,13 @@ h3{
 	font-size:30px;
 
 }
-
+#login{float:right;}
 .main{
 	width:500px;
 	margin:10px 10px 10px 10px;
 	background-color:#FFFAEB;
 	padding:10px 10px 10px 10px;
-		border-width: 2px;
+	border-width: 2px;
 	border-style:solid;
 }
 .title{

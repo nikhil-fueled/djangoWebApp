@@ -11,12 +11,6 @@
                     <div class="time">{{ post.created }}</div>
                     <div class="body">{{ post.body|linebreaks }}</div>
                 </ul>
-                <form action="addComment/" >
-                    Name: <input type="text" name="name"/><br>
-                    Comment: <textarea name="comments"></textarea>
-                    <input type="text" name="post" value="{{post.id}}" hidden="true"/>
-                    <button>Submit</button>
-                </form>
             {% endfor %}
         </ul>
 

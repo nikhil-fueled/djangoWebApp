@@ -10,6 +10,14 @@
                     <div class="time">{{ post.created }}</div>
                     <div class="body">{{ post.body|linebreaks }}</div>
                 </ul>
+                {% if user.is_authenticated %}
+                <form action="addComment/" >
+                    Name: <input type="text" name="name"/><br>
+                    Comment: <textarea name="comments"></textarea>
+                    <input type="text" name="post" value="{{post.id}}" hidden="true"/>
+                    <button>Submit</button>
+                    {% endif %}
+                </form>
                 <div class="comment">
 					<h3> Comments </h3>
 					<ul>
