@@ -7,5 +7,4 @@ urlpatterns = patterns('',
     url(r'^view/(?P<pk>\d+)$', views.view, name="view"),
  	url(r'^login$', views.login, name="login"),
  	url(r'^logout$', views.logout, name="logout"),
-       
 )
